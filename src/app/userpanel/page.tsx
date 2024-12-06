@@ -83,6 +83,9 @@ export default function EnquiryForm() {
   };
 
   const onSubmit = (data: EnquiryFormData) => {
+
+    console.log( data )  ;
+  
     instance
       .post("/student", data)
       .then((response) => {
