@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Box border={"1px solid black"}>
+    <Box >
       <Flex justify="space-between" align="center" maxW="1200px" mx="auto">
         {/* Logo Section */}
         <ChakraLink as={NextLink} href="/adminpanel" fontWeight="bold" fontSize="lg" color="black">
@@ -104,12 +104,14 @@ const Navbar: React.FC = () => {
           {isLoading ? (
             <Spinner size="sm" />
           ) : (
-            <Text color="white">{isError ? 'Error' : data?.adminName}</Text>
+            <Text color="black">{isError ? 'Error' : data?.adminName}</Text>
           )}
           {isLoggedIn ? (
-            <Button onClick={handleLogout} colorScheme="red">
-              Logout
-            </Button>
+
+              <Button onClick={handleLogout} colorScheme="red">
+                Logout
+              </Button>
+            
           ) : (
             <Button onClick={handleLogin} colorScheme="green">
               Login

@@ -34,7 +34,7 @@ export default function AdminPanel() {
   return (
     <>
       <Navbar />
-      <Box textAlign="center" bg={'yellow'} border={"1px solid "} borderColor={'red'}>
+      <Box textAlign="center" >
           <Heading as="h1" size="xl" mb={6}>
             Admin Dashboard
           </Heading>
