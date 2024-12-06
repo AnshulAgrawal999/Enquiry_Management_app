@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
+
 import { useForm } from "react-hook-form";
+
 import axios from "axios";
+
 import {
   Box,
   Button,
@@ -14,6 +17,7 @@ import {
   Textarea,
   Stack,
   useToast,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 
 type EnquiryFormData = {
@@ -105,7 +109,9 @@ export default function EnquiryForm() {
   });
 
   const { register, handleSubmit, formState, reset } = form;
+
   const { errors } = formState;
+
   const toast = useToast();
 
   const instance = axios.create({
@@ -183,7 +189,12 @@ export default function EnquiryForm() {
                     required: "Guardian Name is required",
                   })}
                 />
-                {errors.guardianName && <p>{errors.guardianName?.message}</p>}
+                
+              <FormErrorMessage>
+                {errors.guardianName && errors.guardianName.message}
+              </FormErrorMessage>
+
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.relation}>
@@ -197,7 +208,11 @@ export default function EnquiryForm() {
                   <option value="family">Family Relation</option>
                   <option value="other">Other</option>
                 </Select>
-                {errors.relation && <p>{errors.relation?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.relation && <p>{errors.relation?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.guardianEmail}>
@@ -213,7 +228,13 @@ export default function EnquiryForm() {
                     },
                   })}
                 />
-                {errors.guardianEmail && <p>{errors.guardianEmail?.message}</p>}
+
+
+              <FormErrorMessage>
+              {errors.guardianEmail && <p>{errors.guardianEmail?.message}</p>}
+              </FormErrorMessage>
+                
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.guardianPhoneNumber}>
@@ -230,7 +251,14 @@ export default function EnquiryForm() {
                     },
                   })}
                 />
+
+
+              <FormErrorMessage>
                 {errors.guardianPhoneNumber && <p>{errors.guardianPhoneNumber?.message}</p>}
+              </FormErrorMessage>
+                
+
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.guardianMobileNumberOpt}>
@@ -246,7 +274,11 @@ export default function EnquiryForm() {
                     },
                   })}
                 />
+
+              <FormErrorMessage>
                 {errors.guardianMobileNumberOpt && <p>{errors.guardianMobileNumberOpt?.message}</p>}
+              </FormErrorMessage>
+
               </FormControl>
             </Stack>
           </Box>
@@ -262,7 +294,12 @@ export default function EnquiryForm() {
                   type="text"
                   {...register("studentName", { required: "Student Name is required" })}
                 />
+
+
+              <FormErrorMessage>
                 {errors.studentName && <p>{errors.studentName?.message}</p>}
+              </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.gender}>
@@ -272,7 +309,12 @@ export default function EnquiryForm() {
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </Select>
-                {errors.gender && <p>{errors.gender?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.gender && <p>{errors.gender?.message}</p>}
+                </FormErrorMessage>
+                
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.currentClass}>
@@ -288,7 +330,11 @@ export default function EnquiryForm() {
 
 
                 </Select>
+
+                <FormErrorMessage>
                 {errors.currentClass && <p>{errors.currentClass?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.dateOfBirth}>
@@ -298,13 +344,22 @@ export default function EnquiryForm() {
                   type="date"
                   {...register("dateOfBirth", { required: "Date Of Birth is required" })}
                 />
-                {errors.dateOfBirth && <p>{errors.dateOfBirth?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.dateOfBirth && <p>{errors.dateOfBirth?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl>
                 <FormLabel htmlFor="currentSchool">Current School</FormLabel>
                 <Input id="currentSchool" type="text" {...register("currentSchool")} />
+
+
+                <FormErrorMessage>
                 {errors.currentSchool && <p>{errors.currentSchool?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.lastYearGrade}>
@@ -318,7 +373,11 @@ export default function EnquiryForm() {
 
 
                 </Select>
-                {errors.lastYearGrade && <p>{errors.lastYearGrade?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.lastYearGrade && <p>{errors.lastYearGrade?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
             </Stack>
           </Box>
@@ -330,19 +389,31 @@ export default function EnquiryForm() {
               <FormControl isInvalid={!!errors.address?.street}>
                 <FormLabel htmlFor="street">*Street Address</FormLabel>
                 <Input id="street" type="text" {...register("address.street", { required: "Street is required" })} />
-                {errors.address?.street && <p>{errors.address?.street?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.address?.street && <p>{errors.address?.street?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.address?.city}>
                 <FormLabel htmlFor="city">*City</FormLabel>
                 <Input id="city" type="text" {...register("address.city", { required: "City is required" })} />
+
+                <FormErrorMessage>
                 {errors.address?.city && <p>{errors.address?.city?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.address?.state}>
                 <FormLabel htmlFor="state">*State</FormLabel>
                 <Input id="state" type="text" {...register("address.state", { required: "State is required" })} />
-                {errors.address?.state && <p>{errors.address?.state?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.address?.state && <p>{errors.address?.state?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.address?.pincode}>
@@ -353,7 +424,11 @@ export default function EnquiryForm() {
                   maxLength={6}
                   {...register("address.pincode", { required: "Pincode is required" })}
                 />
-                {errors.address?.pincode && <p>{errors.address?.pincode?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.address?.pincode && <p>{errors.address?.pincode?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.address?.country}>
@@ -364,7 +439,11 @@ export default function EnquiryForm() {
                   defaultValue="India"
                   {...register("address.country", { required: "Country is required" })}
                 />
-                {errors.address?.country && <p>{errors.address?.country?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.address?.country && <p>{errors.address?.country?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
             </Stack>
           </Box>
@@ -386,7 +465,11 @@ export default function EnquiryForm() {
                   <option value="online"> School Fair </option>
                   <option value="online"> Others </option>
                 </Select>
+
+                <FormErrorMessage>
                 {errors.enquirySource && <p>{errors.enquirySource?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl isInvalid={!!errors.description}>
@@ -395,7 +478,11 @@ export default function EnquiryForm() {
                   id="description"
                   {...register("description", { required: "Description is required" })}
                 />
-                {errors.description && <p>{errors.description?.message}</p>}
+
+                <FormErrorMessage>
+                  {errors.description && <p>{errors.description?.message}</p>}
+                </FormErrorMessage>
+
               </FormControl>
 
               <FormControl>
