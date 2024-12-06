@@ -41,6 +41,41 @@ type EnquiryFormData = {
   wantTransport: boolean;
 };
 
+
+
+const grade = [
+  "not applicable" ,
+  "A+",
+  "A",
+  "A-",
+  "B+",
+  "B",
+  "B-",
+  "C+",
+  "C",
+  "C-",
+  "Fail"
+]  ;
+
+const currentClass = [
+  "Pre-School",
+  "Pre-Nursery",
+  "Nursery",
+  "LKG",
+  "KG",
+  "First Class",
+  "Second Class",
+  "Third Class",
+  "Fourth Class",
+  "Fifth Class",
+  "Sixth Class",
+  "Seventh Class",
+  "Eighth Class",
+  "Nineth Class",
+  "Tenth Class"
+]
+
+
 export default function EnquiryForm() {
   const form = useForm<EnquiryFormData>({
     defaultValues: {
@@ -53,7 +88,7 @@ export default function EnquiryForm() {
       gender: "male",
       currentClass: "Pre-School",
       dateOfBirth: "",
-      currentSchool: "",
+      currentSchool: "not applicable",
       lastYearGrade: "not applicable",
       address: {
         street: "",
@@ -97,6 +132,9 @@ export default function EnquiryForm() {
           duration: 5000,
           isClosable: true,
         });
+
+        alert( 'Enquiry form submitted successfully')  ;
+
         reset();
       })
       .catch((err) => {
@@ -109,6 +147,9 @@ export default function EnquiryForm() {
             duration: 5000,
             isClosable: true,
           });
+
+          alert( "An enquiry with this guardian phone number already exists!" )  ;
+
         } else {
           console.log("Error:", err);
           toast({
@@ -118,6 +159,8 @@ export default function EnquiryForm() {
             duration: 5000,
             isClosable: true,
           });
+
+          alert( "Failed to submit enquiry form" )  ;
         }
       });
   };
@@ -238,8 +281,12 @@ export default function EnquiryForm() {
                   id="currentClass"
                   {...register("currentClass", { required: "Current class is required" })}
                 >
-                  <option value="Pre-School">Pre-School</option>
-                  {/* Add other classes as options */}
+                  
+                {
+                  currentClass.map( el => <option value={el} key={el} > {el} </option> )
+                }
+
+
                 </Select>
                 {errors.currentClass && <p>{errors.currentClass?.message}</p>}
               </FormControl>
@@ -266,8 +313,10 @@ export default function EnquiryForm() {
                   id="lastYearGrade"
                   {...register("lastYearGrade", { required: "Last Year Grade is required" })}
                 >
-                  <option value="not applicable">Not Applicable</option>
-                  {/* Add other grade options */}
+
+                  { grade.map( el => <option value={el} key={el} > { el } </option> ) }
+
+
                 </Select>
                 {errors.lastYearGrade && <p>{errors.lastYearGrade?.message}</p>}
               </FormControl>
@@ -332,7 +381,10 @@ export default function EnquiryForm() {
                 >
                   <option value="referral">Referral</option>
                   <option value="advertisement">Advertisement</option>
-                  <option value="online">Online</option>
+                  <option value="referral">youtube</option>
+                  <option value="advertisement">Instagram</option>
+                  <option value="online"> School Fair </option>
+                  <option value="online"> Others </option>
                 </Select>
                 {errors.enquirySource && <p>{errors.enquirySource?.message}</p>}
               </FormControl>
