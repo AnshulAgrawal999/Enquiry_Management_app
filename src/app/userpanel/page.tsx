@@ -172,8 +172,11 @@ export default function EnquiryForm() {
   };
 
   return (
+
     <Box p={6}>
+
       <h1>User Panel Enquiry Submission Form</h1>
+      
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Stack spacing={4}>
           {/* Guardian Information Section */}
