@@ -1,11 +1,12 @@
 'use client'
 
+import EnquiryDetails from '@/components/EnquiryDetails';
 import Navbar from '@/components/Navbar';
 
 import { useParams } from 'next/navigation';
 
 export default function EnquiriePage() {
-    
+
   const params = useParams();
   
   const { id } = params;
@@ -17,6 +18,8 @@ export default function EnquiriePage() {
   return (
     <div>
       <Navbar />
+
+      <EnquiryDetails />
       
     </div>
   );
