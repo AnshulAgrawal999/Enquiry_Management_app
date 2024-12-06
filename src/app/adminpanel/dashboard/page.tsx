@@ -34,6 +34,7 @@ export default function AdminPanel() {
   return (
     <>
       <Navbar />
+
       <Center bg="gray.50" minH="100vh" py={10}>
         <Box textAlign="center">
           <Heading as="h1" size="xl" mb={6}>
@@ -64,6 +65,8 @@ export default function AdminPanel() {
           )}
         </Box>
       </Center>
+
+
     </>
   );
 }

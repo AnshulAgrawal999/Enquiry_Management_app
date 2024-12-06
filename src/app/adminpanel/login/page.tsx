@@ -58,6 +58,7 @@ const Login: React.FC = () => {
   };
 
   return (
+  
     <Box
       minH="100vh"
       bg="gray.50"
@@ -94,13 +95,11 @@ const Login: React.FC = () => {
               type="text"
               {...register('username', { required: 'Username is required' })}
             />
-
             {errors.username && (
               <Text fontSize="sm" color="red.500">
                 {String(errors.username.message)}
               </Text>
             )}
-
           </FormControl>
 
           <FormControl isInvalid={!!errors.password}>
@@ -110,13 +109,11 @@ const Login: React.FC = () => {
               type="password"
               {...register('password', { required: 'Password is required' })}
             />
-
             {errors.password && (
               <Text fontSize="sm" color="red.500">
                 {String(errors.password.message)}
               </Text>
             )}
-
           </FormControl>
 
           <Button
@@ -130,6 +127,8 @@ const Login: React.FC = () => {
         </VStack>
       </Box>
     </Box>
+
+
   );
 };
 

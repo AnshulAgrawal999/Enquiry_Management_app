@@ -12,10 +12,8 @@ export default function EnquiriePage() {
       <Box padding="20px" textAlign="center">
 
       <Navbar />
-      
-      <Heading >
-        Enquiry Table
-      </Heading>
+{/*       
+      <EnquiriesTable /> */}
       
     </Box>
 
