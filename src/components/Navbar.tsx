@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
         <ChakraLink as={NextLink} href="/adminpanel" fontWeight="bold" fontSize="lg" color="black">
           Admin Panel
         </ChakraLink>
-
+  
         {/* Navigation Links */}
         <Flex gap={4}>
           <Button as={NextLink} href="/adminpanel/dashboard" colorScheme="teal" variant="outline">
@@ -98,12 +98,14 @@ const Navbar: React.FC = () => {
             Enquiry Table
           </Button>
         </Flex>
-
+  
         {/* Authentication Section */}
         <Flex align="center" gap={4}>
-          <Text color="white">
-            {isLoading ? <Spinner size="sm" /> : isError ? 'Error' : data?.adminName}
-          </Text>
+          {isLoading ? (
+            <Spinner size="sm" />
+          ) : (
+            <Text color="white">{isError ? 'Error' : data?.adminName}</Text>
+          )}
           {isLoggedIn ? (
             <Button onClick={handleLogout} colorScheme="red">
               Logout
@@ -117,6 +119,8 @@ const Navbar: React.FC = () => {
       </Flex>
     </Box>
   );
+  
+
 };
 
 export default Navbar;

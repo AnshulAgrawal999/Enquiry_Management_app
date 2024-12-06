@@ -3,6 +3,8 @@ import { Box, Heading } from '@chakra-ui/react';
 
 import Navbar from '@/components/Navbar'  ;
 
+import EnquiriesTable from '@/components/EnquiryTable'  ;
+
 
 
 export default function EnquiriePage() {
@@ -13,7 +15,7 @@ export default function EnquiriePage() {
 
       <Navbar />
 
-      {/* <EnquiriesTable /> */}
+      <EnquiriesTable />
       
       </Box>
 

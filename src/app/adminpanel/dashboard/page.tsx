@@ -62,10 +62,6 @@ export default function AdminPanel() {
             <Spinner color="blue.500" size="lg" />
           )}
         </Box>
-      {/* <Center bg="gray.50" minH="100vh" py={10}>
-    
-      </Center> */}
-
 
     </>
   );
