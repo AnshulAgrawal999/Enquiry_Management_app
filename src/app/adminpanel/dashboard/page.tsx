@@ -34,9 +34,7 @@ export default function AdminPanel() {
   return (
     <>
       <Navbar />
-
-      <Center bg="gray.50" minH="100vh" py={10}>
-        <Box textAlign="center">
+      <Box textAlign="center" bg={'yellow'} border={"1px solid "} borderColor={'red'}>
           <Heading as="h1" size="xl" mb={6}>
             Admin Dashboard
           </Heading>
@@ -64,7 +62,9 @@ export default function AdminPanel() {
             <Spinner color="blue.500" size="lg" />
           )}
         </Box>
-      </Center>
+      {/* <Center bg="gray.50" minH="100vh" py={10}>
+    
+      </Center> */}
 
 
     </>

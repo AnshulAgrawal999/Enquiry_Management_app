@@ -12,10 +12,10 @@ export default function EnquiriePage() {
       <Box padding="20px" textAlign="center">
 
       <Navbar />
-{/*       
-      <EnquiriesTable /> */}
+
+      {/* <EnquiriesTable /> */}
       
-    </Box>
+      </Box>
 
     )  ;
 

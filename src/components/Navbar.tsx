@@ -82,10 +82,10 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Box bg="blue.600" px={6} py={4}>
+    <Box border={"1px solid black"}>
       <Flex justify="space-between" align="center" maxW="1200px" mx="auto">
         {/* Logo Section */}
-        <ChakraLink as={NextLink} href="/adminpanel" fontWeight="bold" fontSize="lg" color="white">
+        <ChakraLink as={NextLink} href="/adminpanel" fontWeight="bold" fontSize="lg" color="black">
           Admin Panel
         </ChakraLink>
 
