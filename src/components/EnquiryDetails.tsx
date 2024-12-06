@@ -12,12 +12,14 @@ import {
   FormLabel,
   Heading,
   Input,
+  RangeSliderMark,
   Stack,
   Textarea,
   VStack,
 } from '@chakra-ui/react';
 import { useForm, Controller } from 'react-hook-form';
 import GoBackButton from './GoBackButton';
+import RemarkSection from './RemarkSection';
 
 type Address = {
   street: string;
@@ -167,7 +169,7 @@ export default function EnquiryDetails() {
       <Heading mb="4">Enquiry Details</Heading>
 
       <GoBackButton />
-      
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack spacing="4" align="stretch">
           {/* Student Information */}
@@ -383,6 +385,7 @@ export default function EnquiryDetails() {
           </Button>
         </VStack>
       </form>
+
     </Box>
   );
 }

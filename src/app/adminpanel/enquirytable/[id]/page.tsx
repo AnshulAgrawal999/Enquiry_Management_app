@@ -2,6 +2,7 @@
 
 import EnquiryDetails from '@/components/EnquiryDetails';
 import Navbar from '@/components/Navbar';
+import RemarkSection from '@/components/RemarkSection';
 
 import { useParams } from 'next/navigation';
 
@@ -20,6 +21,8 @@ export default function EnquiriePage() {
       <Navbar />
 
       <EnquiryDetails />
+
+      <RemarkSection studentId={id as string} />
       
     </div>
   );
