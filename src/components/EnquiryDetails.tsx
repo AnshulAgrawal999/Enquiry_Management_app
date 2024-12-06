@@ -17,6 +17,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { useForm, Controller } from 'react-hook-form';
+import GoBackButton from './GoBackButton';
 
 type Address = {
   street: string;
@@ -164,6 +165,9 @@ export default function EnquiryDetails() {
   return (
     <Box maxW="800px" mx="auto" p="6" boxShadow="lg" borderRadius="md">
       <Heading mb="4">Enquiry Details</Heading>
+
+      <GoBackButton />
+      
       <form onSubmit={handleSubmit(onSubmit)}>
         <VStack spacing="4" align="stretch">
           {/* Student Information */}
