@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Button, Textarea, Text, Stack, List, ListItem, Heading, Flex } from '@chakra-ui/react';
+import { Box, Button, Textarea, Text, Stack, List, ListItem, Heading, Flex, IconButton } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons';
 
 interface Comment {
   _id: string;
@@ -60,6 +61,25 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
     }
   };
 
+
+  // Handle delete comment
+  const handleDeleteComment = async (remarkId: string) => {
+
+    const confirmed = window.confirm("Are you sure you want to delete this comment?")  ;
+    if (!confirmed) return  ;
+
+    try {
+
+      await axios.delete(`http://localhost:4000/admin/deleteremark/${studentId}/${remarkId}`);
+      
+      setComments(comments.filter((comment) => comment._id !== remarkId))  ;
+
+
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    }
+  };
+
   return (
     <Box width="80%" margin="0 auto" padding="20px" bg="gray.50" borderRadius="8px" boxShadow="lg">
       <Heading size="lg" mb={6}>Admin Remarks</Heading>
@@ -84,9 +104,19 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
           <List spacing={4}>
             {comments.map((comment) => (
               <ListItem key={comment._id} bg="white" p={4} borderRadius="6px" boxShadow="md">
-                <Text fontWeight="bold" color="blue.500">{comment.username}</Text>
-                <Text fontSize="sm" color="gray.600">{new Date(comment.createdAt).toLocaleString()}</Text>
-                <Text mt={2}>{comment.comment}</Text>
+                <Flex justifyContent="space-between" alignItems="center">
+                  <Box>
+                    <Text fontWeight="bold" color="blue.500">{comment.username}</Text>
+                    <Text fontSize="sm" color="gray.600">{new Date(comment.createdAt).toLocaleString()}</Text>
+                    <Text mt={2}>{comment.comment}</Text>
+                  </Box>
+                  <IconButton
+                    aria-label="Delete remark"
+                    icon={<DeleteIcon />}
+                    colorScheme="red"
+                    onClick={() => handleDeleteComment(comment._id)}
+                  />
+                </Flex>
               </ListItem>
             ))}
           </List>
@@ -98,4 +128,4 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
   );
 };
 
-export default RemarkSection  ;
+export default RemarkSection;
