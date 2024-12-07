@@ -53,9 +53,12 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
         username,
         comment: newComment,
       });
+
       // Append the new comment to the list
-      setComments([response.data, ...comments]);
+      setComments([response.data, ...comments])  ;
+
       setNewComment(''); // Clear the input after submission
+
     } catch (error) {
       console.error('Error adding comment:', error);
     }
