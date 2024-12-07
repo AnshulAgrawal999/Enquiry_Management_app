@@ -7,6 +7,10 @@ import "./globals.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react"; 
 
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from '@chakra-ui/theme';
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,8 +36,12 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
+
         <QueryClientProvider client={queryClient}>
+          <ChakraProvider theme={theme}>
           {children}
+          </ChakraProvider>
         </QueryClientProvider>
         
       </body>
