@@ -19,6 +19,7 @@ import {
   useToast,
   Spinner,
 } from '@chakra-ui/react';
+import StudentFilter from './EnquiryFilter';
 
 type Enquiry = {
   _id: string;
@@ -141,6 +142,9 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
       <Heading as="h1" size="lg" mb={6}>
         Enquiries Table
       </Heading>
+
+      <StudentFilter onFilter={handleFilterUpdate} currentFilters={filters} />
+
 
       {isLoading ? (
         <Spinner size="xl" />
