@@ -48,8 +48,8 @@ This is an **Enquiry Management System** designed to streamline the process of h
 - Expanded view of the enquiries table with multiple entries.
 
 ## Tech Stack
-- **Frontend:** Next.js, React Query  
-- **Backend:** Nest.js (https://github.com/AnshulAgrawal999/school_enquiry_backend)
+- **Frontend:** Next.js, Chakra UI, React Query  
+- **Backend:** Nest.js (-https://github.com/AnshulAgrawal999/school_enquiry_backend)
 - **Database:** MongoDB  
 
 ## Prerequisites
