@@ -23,31 +23,28 @@ This is an **Enquiry Management System** designed to streamline the process of h
 - **Add/Edit Enquiry:** Admins can update or add details to enquiries as needed.
 - **Remarks and Comments:** Add notes with author, timestamp, and visibility settings (e.g., private or internal).
 
-## Screenshots
-Here are some visual representations of the application:
-
 ### Admin Dashboard
-![Admin Dashboard](public/Screenshot%20(719).png)
+![Admin Dashboard](public/Images/Screenshot%20(719).png)
 - Displays the total number of student enquiries (e.g., 120).
 
 ### Enquiries Table
-![Enquiries Table](public/Screenshot%20(718).png)
+![Enquiries Table](public/Images/Screenshot%20(718).png)
 - Shows a table with filters, search, and pagination options for managing enquiries.
 
 ### Admin Login
-![Admin Login](public/Screenshot%20(723).png)
+![Admin Login](public/Images/Screenshot%20(723).png)
 - Secure login page for admin access.
 
 ### Admin Remarks
-![Address Edit](public/Screenshot%20(722).png)
+![Address Edit](public/Images/Screenshot%20(722).png)
 - Interface for adding admin remarks and deleting admin remarks.
 
 ### Enquiry Details
-![Enquiry Details](public/Screenshot%20(721).png)
+![Enquiry Details](public/Images/Screenshot%20(721).png)
 - Detailed view of a specific enquiry, including student and guardian information.
 
 ### Full Enquiries Table
-![Full Enquiries Table](public/Screenshot%20(720).png)
+![Full Enquiries Table](public/Images/Screenshot%20(720).png)
 - Expanded view of the enquiries table with multiple entries.
 
 ## Tech Stack
