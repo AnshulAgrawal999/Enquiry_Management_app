@@ -15,7 +15,7 @@ const GoBackButton = () => {
   return (
     <Button
       onClick={handleGoBack}
-      bg="darkblue"
+      bg="rgb(0, 0, 200)"
       color="black"
       _hover={{ bg: 'blue.600' }}
       _active={{ bg: 'blue.700' }}
