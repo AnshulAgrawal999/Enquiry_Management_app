@@ -51,7 +51,7 @@ Here are some visual representations of the application:
 - Expanded view of the enquiries table with multiple entries.
 
 ## Tech Stack
-- **Frontend:** Next.js, Chakra UI, React Query  
+- **Frontend:** Next.js, React Query  
 - **Backend:** Nest.js (https://github.com/AnshulAgrawal999/school_enquiry_backend)
 - **Database:** MongoDB  
 
