@@ -37,7 +37,7 @@ This is an **Enquiry Management System** designed to streamline the process of h
 
 ### Admin Remarks
 ![Address Edit](public/Images/Screenshot%20(722).png)
-- Interface for adding admin remarks and deleting admin remarks.
+- Interface for adding and deleting admin remarks.
 
 ### Enquiry Details
 ![Enquiry Details](public/Images/Screenshot%20(721).png)
