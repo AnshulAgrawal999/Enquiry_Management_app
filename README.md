@@ -27,27 +27,27 @@ This is an **Enquiry Management System** designed to streamline the process of h
 Here are some visual representations of the application:
 
 ### Admin Dashboard
-![Admin Dashboard](screenshots/admin_dashboard.png)
+![Admin Dashboard](public/Screenshot%20(719).png)
 - Displays the total number of student enquiries (e.g., 120).
 
 ### Enquiries Table
-![Enquiries Table](screenshots/enquiries_table.png)
+![Enquiries Table](public/Screenshot%20(718).png)
 - Shows a table with filters, search, and pagination options for managing enquiries.
 
 ### Admin Login
-![Admin Login](screenshots/admin_login.png)
+![Admin Login](public/Screenshot%20(723).png)
 - Secure login page for admin access.
 
-### Address Edit
-![Address Edit](screenshots/address_edit.png)
-- Interface for editing student address details and adding admin remarks.
+### Admin Remarks
+![Address Edit](public/Screenshot%20(722).png)
+- Interface for adding admin remarks and deleting admin remarks.
 
 ### Enquiry Details
-![Enquiry Details](screenshots/enquiry_details.png)
+![Enquiry Details](public/Screenshot%20(721).png)
 - Detailed view of a specific enquiry, including student and guardian information.
 
 ### Full Enquiries Table
-![Full Enquiries Table](screenshots/full_enquiries_table.png)
+![Full Enquiries Table](public/Screenshot%20(720).png)
 - Expanded view of the enquiries table with multiple entries.
 
 ## Tech Stack
