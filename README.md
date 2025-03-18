@@ -91,7 +91,7 @@ Before setting up the project, ensure you have the following installed:
    ```
 
 3. **Set Up APIs**
-   - Create a `index.js` file inside the api directory.
+   - Create a `index.ts` file inside the api directory.
 
 4. **Run the Development Server:**
 

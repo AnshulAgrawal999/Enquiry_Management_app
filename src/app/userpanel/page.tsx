@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 
 import axios from "axios";
 
+import { local_base_url } from "../../api/index";
+
 import {
   Box,
   Button,
@@ -115,7 +117,7 @@ export default function EnquiryForm() {
   const toast = useToast();
 
   const instance = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: local_base_url,
     headers: { "X-Custom-Header": "foobar" },
   });
 
