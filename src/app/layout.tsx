@@ -8,7 +8,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { useState } from "react"; 
 
 import { ChakraProvider } from '@chakra-ui/react';
-import theme from '@chakra-ui/theme';
+
+import { theme } from '@chakra-ui/theme';
 
 
 
