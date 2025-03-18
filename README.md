@@ -1,15 +1,15 @@
-# School Enquiry App
+# Enquiry Management App
 
-This is an **Enquiry Management System** designed to streamline the process of handling prospective student enquiries for school admissions. It provides an intuitive user panel for parents or guardians to submit enquiries and a robust admin panel for admissions staff to manage and follow up on them efficiently.
+**Enquiry Management App** is designed to streamline the process of handling prospective student enquiries for school admissions. It provides an intuitive user panel for parents or guardians to submit enquiries and a robust admin panel for admissions staff to manage and follow up on them efficiently.
 
 ## Features
 
 ### User Panel (Enquiry Submission Form)
 - **Enquiry Submission:** Allows guardians to submit details about the prospective student, including contact information, address, and specific questions or areas of interest.
 - **Key Fields:**
-  - **Contact Details:** Guardian's name, phone number, mobile number, email, and optional social media handles.
+  - **Contact Details:** Guardian's name, phone number, mobile number, email.
   - **Student Information:** Student's name, grade applying for, date of birth, and current school.
-  - **Address Information:** Street, city, state, zip code, and country.
+  - **Address Information:** Street, city, state, pin code, and country.
   - **Enquiry Details:** Source of enquiry (e.g., referral, website) and a description field for additional notes.
 - Displays if an enquiry is already registered with the same name and number.
 
@@ -20,7 +20,7 @@ This is an **Enquiry Management System** designed to streamline the process of h
 - **View Enquiry Profile:** Detailed view of each enquiry, including:
   - Full student and guardian information.
   - Enquiry timeline showing submission date, follow-ups, and status updates.
-- **Add/Edit Enquiry:** Admins can update or add details to enquiries as needed.
+- **Add/Edit Enquiry:** Admins can edit or add details to enquiries as needed.
 - **Remarks and Comments:** Add notes with author, timestamp, and visibility settings (e.g., private or internal).
 
 ### Admin Dashboard
@@ -48,7 +48,7 @@ This is an **Enquiry Management System** designed to streamline the process of h
 - Expanded view of the enquiries table with multiple entries.
 
 ## Tech Stack
-- **Frontend:** Next.js, Chakra UI, React Query  
+- **Frontend:** React.js, TypeScript, Next.js, Chakra UI, React Query  
 - **Backend:** Nest.js (-https://github.com/AnshulAgrawal999/school_enquiry_backend)
 - **Database:** MongoDB  
 
@@ -61,8 +61,8 @@ Before setting up the project, ensure you have the following installed:
 ## Installation
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/AnshulAgrawal999/school_enquiry_app.git
-   cd school_enquiry_app
+   git clone https://github.com/AnshulAgrawal999/Enquiry_Management_app.git
+   cd Enquiry_Management_App
    ```
 
 2. **Install Dependencies:**
@@ -70,14 +70,8 @@ Before setting up the project, ensure you have the following installed:
    npm install
    ```
 
-3. **Set Up Environment Variables:**
-   Create a `.env.local` file in the root directory and add the following:
-   ```plaintext
-   MONGODB_URI=your_mongodb_connection_string
-   NEXTAUTH_SECRET=your_secret_key
-   ```
-   - Replace `your_mongodb_connection_string` with your MongoDB URI.
-   - Generate a secure `NEXTAUTH_SECRET` (e.g., using `openssl rand -base64 32`).
+3. **Set Up APIs**
+   Create a `api` folder inside the src directory.
 
 4. **Run the Development Server:**
    ```bash
@@ -91,4 +85,3 @@ Before setting up the project, ensure you have the following installed:
 
 ## Contact
 For questions or feedback, feel free to reach out to [Anshul Agrawal](https://github.com/AnshulAgrawal999) or open an issue on this repository.
-
