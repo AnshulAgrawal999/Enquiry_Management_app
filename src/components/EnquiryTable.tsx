@@ -23,13 +23,13 @@ import StudentFilter from './EnquiryFilter';
 
 import { remote_base_url } from '../api/index';
 
-type Enquiry = {
+interface Enquiry {
   _id: string;
   guardianName: string;
   relation: string;
   guardianEmail: string;
   guardianPhoneNumber: string;
-  guardianMobileNumberOpt: string;
+  guardianMobileNumberOpt?: string;
   studentName: string;
   gender: string;
   currentClass: string;
@@ -50,7 +50,26 @@ type Enquiry = {
   createdAt?: string;
 };
 
-const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
+
+interface EnquiryFilters {
+  limit: number;
+  page: number;
+  state: string;
+  enquirySource: string;
+  searchedName: string;
+  sort: string;
+  nameSort: string;
+}
+
+interface ApiResponse {
+  enquiryFormsData: Enquiry[];
+  pagination: {
+    currentPage: number;
+    totalPages: number;
+  };
+}
+
+const EnquiriesTable: React.FC<{ initialFilters?: EnquiryFilters }> = ({
   initialFilters = {},
 }) => {
   const router = useRouter();
@@ -78,7 +97,7 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
     totalPages: 1,
   });
 
-  const fetchEnquiries = async (filters: Record<string, any>) => {
+  const fetchEnquiries = async (filters: EnquiryFilters) : Promise<ApiResponse> => {
     const response = await axios.get( `${remote_base_url}/admin` , {
       params: filters,
     });
@@ -97,16 +116,16 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
 
   const enquiries = data?.enquiryFormsData || [];
 
-  const handleFilterUpdate = (updatedFilters: Record<string, any>) => {
+  const handleFilterUpdate = (updatedFilters: EnquiryFilters ) => {
     const newFilters = { ...filters, ...updatedFilters, page: 1 };
     setFilters(newFilters);
-    router.replace(`?${new URLSearchParams(newFilters as any).toString()}`);
+    router.replace(`?${new URLSearchParams(newFilters as unknown as Record<string, string>).toString()}`);
   };
 
   const handlePageChange = (newPage: number) => {
     const newFilters = { ...filters, page: newPage };
     setFilters(newFilters);
-    router.replace(`?${new URLSearchParams(newFilters as any).toString()}`);
+    router.replace(`?${new URLSearchParams(newFilters as unknown as Record<string, string>).toString()}`);
   };
 
   const handleDelete = async (id: string) => {
@@ -116,11 +135,11 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
         toast({
           title: 'Enquiry deleted successfully.',
           status: 'success',
-          duration: 3000,
+          duration: 3000, 
         });
 
-        queryClient.setQueryData(['enquiries', filters], (oldData: any) => {
-          if (!oldData) return;
+        queryClient.setQueryData<ApiResponse>(['enquiries', filters], (oldData : ApiResponse | undefined ) => {
+          if (!oldData) return { enquiryFormsData: [], pagination: { currentPage: 1, totalPages: 1 } };
           return {
             ...oldData,
             enquiryFormsData: oldData.enquiryFormsData.filter(

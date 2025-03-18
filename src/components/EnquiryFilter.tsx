@@ -9,6 +9,11 @@ import {
   Select,
 } from "@chakra-ui/react";
 
+interface StudentFilterProps {
+  onFilter: (filters: FilterProps) => void;
+  currentFilters: FilterProps;
+}
+
 interface FilterProps {
   limit: number;
   page: number;
@@ -19,7 +24,7 @@ interface FilterProps {
   nameSort: string;
 }
 
-const StudentFilter: React.FC<any> = ({ onFilter, currentFilters }) => {
+const StudentFilter: React.FC<StudentFilterProps> = ({ onFilter, currentFilters }) => {
   const initialFilters: FilterProps = {
     limit: 10,
     page: 1,

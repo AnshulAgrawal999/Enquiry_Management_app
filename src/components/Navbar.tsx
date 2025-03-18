@@ -77,9 +77,13 @@ const Navbar: React.FC = () => {
       } else {
         console.error('Logout failed', response.data);
       }
-    } catch (error: any) {
-      console.error('Error during logout:', error.message);
-      alert('Failed to log out.');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('Error during logout:', error.message);
+        alert('Failed to log out.');
+      } else {
+        console.error('Unexpected error during logout:', error);
+      }
     }
   };
 

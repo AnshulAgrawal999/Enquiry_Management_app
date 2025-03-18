@@ -43,8 +43,12 @@ const Login: React.FC = () => {
       localStorage.setItem('adminName', username);
       router.push('/adminpanel');
     },
-    onError: (error: any) => {
-      setError(error.message || 'An unexpected error occurred')  ;
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        setError(error.message || 'An unexpected error occurred');
+      } else {
+        setError('An unexpected error occurred');
+      }
     },
   });
 
