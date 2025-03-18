@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Box, Button, Flex, Link as ChakraLink, Text, Spinner } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-import { local_base_url } from '@/api';
+import { remote_base_url } from '@/api';
 
 const validateToken = async () => {
   const token = localStorage.getItem('token');
@@ -15,7 +15,7 @@ const validateToken = async () => {
     throw new Error('No token found');
   }
 
-  const response = await fetch( `${local_base_url}/admin/validate-token` , {
+  const response = await fetch( `${remote_base_url}/admin/validate-token` , {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
   }, [router]);
 
   const handleLogin = () => {
-    router.push( `${local_base_url}/adminpanel/login` )  ;
+    router.push( `${remote_base_url}/adminpanel/login` )  ;
   };
 
   const handleLogout = async () => {
@@ -62,7 +62,7 @@ const Navbar: React.FC = () => {
       if (!token) throw new Error('No token found in localStorage');
 
       const response = await axios.post(
-        `${local_base_url}/admin/logout` ,
+        `${remote_base_url}/admin/logout` ,
         {},
         {
           headers: { Authorization: token },

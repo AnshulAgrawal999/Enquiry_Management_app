@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Button, Textarea, Text, Stack, List, ListItem, Heading, Flex, IconButton } from '@chakra-ui/react';
+import { Box, Button, Textarea, Text, List, ListItem, Heading, Flex, IconButton } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 
-import { local_base_url } from '@/api';
+import { remote_base_url } from '@/api';
 
 interface Comment {
   _id: string;
@@ -27,7 +27,7 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get( `${local_base_url}/admin/remarklist/${studentId}` )  ;
+        const response = await axios.get( `${remote_base_url}/admin/remarklist/${studentId}` )  ;
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching remarks:', error);
@@ -51,7 +51,7 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
     }
 
     try {
-      const response = await axios.post( `${local_base_url}/admin/addremark/${studentId}` , {
+      const response = await axios.post( `${remote_base_url}/admin/addremark/${studentId}` , {
         username,
         comment: newComment,
       });
@@ -75,7 +75,7 @@ const RemarkSection: React.FC<AdminCommentSectionProps> = ({ studentId }) => {
 
     try {
 
-      await axios.delete( `${local_base_url}/admin/deleteremark/${studentId}/${remarkId}` ) ;
+      await axios.delete( `${remote_base_url}/admin/deleteremark/${studentId}/${remarkId}` ) ;
       
       setComments(comments.filter((comment) => comment._id !== remarkId))  ;
 

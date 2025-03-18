@@ -8,15 +8,16 @@ import {
   FormLabel,
   Input,
   Heading,
-  Text,
   Alert,
   AlertIcon,
 } from '@chakra-ui/react';
 import { useMutation } from 'react-query';
 import { useRouter } from 'next/navigation';
 
+import { remote_base_url } from '@/api';
+
 const loginUser = async ({ username, password }: { username: string; password: string }) => {
-  const response = await fetch('http://localhost:4000/admin/login', {
+  const response = await fetch( `${remote_base_url}/admin/login` , {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password }),
@@ -43,7 +44,7 @@ const Login: React.FC = () => {
       router.push('/adminpanel');
     },
     onError: (error: any) => {
-      setError(error.message || 'An unexpected error occurred');
+      setError(error.message || 'An unexpected error occurred')  ;
     },
   });
 

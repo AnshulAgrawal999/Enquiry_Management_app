@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
-import { Box, Center, Heading, Text, Spinner } from '@chakra-ui/react';
+import { Box , Heading, Text, Spinner } from '@chakra-ui/react';
+
+import { remote_base_url } from '@/api';
 
 export default function AdminPanel() {
   const [studentCount, setStudentCount] = useState<number | null>(null);
@@ -12,7 +14,7 @@ export default function AdminPanel() {
     // Fetch the number of students from the backend
     const fetchStudentCount = async () => {
       try {
-        const response = await fetch('http://localhost:4000/admin/studentcount'); // Adjust the endpoint based on your setup
+        const response = await fetch( `${remote_base_url}/admin/studentcount` ); // Adjust the endpoint based on your setup
         if (!response.ok) {
           throw new Error('Failed to fetch student count');
         }

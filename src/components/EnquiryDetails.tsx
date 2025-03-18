@@ -3,7 +3,7 @@
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 import { useMutation, useQuery } from 'react-query';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -19,7 +19,7 @@ import {
 import { useForm, Controller } from 'react-hook-form';
 import GoBackButton from './GoBackButton';
 
-import { local_base_url } from '../api/index';
+import { remote_base_url } from '../api/index';
 
 
 
@@ -53,13 +53,13 @@ type Enquiry = {
 };
 
 const fetchEnquiry = async (id: string) => {
-  const response = await axios.get( `${local_base_url}/admin/${id}`);
+  const response = await axios.get( `${remote_base_url}/admin/${id}`);
   return response.data.existingEnquiryForm;
 };
 
 const updateEnquiry = async (id: string, data: Enquiry) => {
   const response = await axios.patch(
-    `${local_base_url}/admin/${id}`,
+    `${remote_base_url}/admin/${id}`,
     data,
     {
       headers: {

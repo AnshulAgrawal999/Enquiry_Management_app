@@ -21,7 +21,7 @@ import {
 } from '@chakra-ui/react';
 import StudentFilter from './EnquiryFilter';
 
-import { local_base_url } from '../api/index';
+import { remote_base_url } from '../api/index';
 
 type Enquiry = {
   _id: string;
@@ -79,7 +79,7 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
   });
 
   const fetchEnquiries = async (filters: Record<string, any>) => {
-    const response = await axios.get( `${local_base_url}/admin` , {
+    const response = await axios.get( `${remote_base_url}/admin` , {
       params: filters,
     });
     setPagination({
@@ -112,7 +112,7 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
   const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this enquiry?')) {
       try {
-        await axios.delete( `${local_base_url}/admin/${id}` );
+        await axios.delete( `${remote_base_url}/admin/${id}` );
         toast({
           title: 'Enquiry deleted successfully.',
           status: 'success',
@@ -129,6 +129,8 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
           };
         });
       } catch (error) {
+
+        console.log( error )  ;
         toast({
           title: 'Error deleting enquiry.',
           description: 'Please try again later.',
