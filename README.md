@@ -64,7 +64,7 @@
 ## Tech Stack
 
 - **Frontend:** React.js, TypeScript, Next.js, Chakra UI, React Query  
-- **Backend:** Nest.js ([GitHub Repository](https://github.com/AnshulAgrawal999/school_enquiry_backend))
+- **Backend:** Node.js, Nest.js ([GitHub Repository](https://github.com/AnshulAgrawal999/school_enquiry_backend))
 - **Database:** MongoDB  
 
 ## Prerequisites
@@ -100,6 +100,22 @@ Before setting up the project, ensure you have the following installed:
    ```
 
    Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+## API Endpoints Reference
+
+| Method | Endpoint          | Description                         |
+|--------|------------------|-------------------------------------|
+| POST   | `/api/enquiries`  | Submit a new enquiry               |
+| GET    | `/api/enquiries`  | Retrieve all enquiries             |
+| GET    | `/api/enquiries/:id` | Retrieve a specific enquiry      |
+| PATCH  | `/api/enquiries/:id` | Update an enquiry                |
+| DELETE | `/api/enquiries/:id` | Delete an enquiry                |
+
+## Security Notes
+
+- **Admin Login:** Uses hashed passwords and JWT-based authentication.
+- **Data Validation:** All API endpoints validate input using DTOs in Nest.js.
+- **CORS Protection:** Configured to allow requests only from authorized origins.
 
 ## Usage
 
