@@ -64,7 +64,7 @@
 ## Tech Stack
 
 - **Frontend:** React.js, TypeScript, Next.js, Chakra UI, React Query  
-- **Backend:** Node.js, Nest.js ([GitHub Repository](https://github.com/AnshulAgrawal999/school_enquiry_backend))
+- **Backend:** Node.js, Nest.js ([School Enquiry Backend](https://github.com/AnshulAgrawal999/school_enquiry_backend))
 - **Database:** MongoDB  
 
 ## Prerequisites
