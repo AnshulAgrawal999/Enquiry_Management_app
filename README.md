@@ -62,7 +62,7 @@ Before setting up the project, ensure you have the following installed:
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/AnshulAgrawal999/Enquiry_Management_app.git
-   cd Enquiry_Management_App
+   cd Enquiry_Management_app
    ```
 
 2. **Install Dependencies:**
