@@ -21,6 +21,8 @@ import {
 } from '@chakra-ui/react';
 import StudentFilter from './EnquiryFilter';
 
+import { local_base_url } from '../api/index';
+
 type Enquiry = {
   _id: string;
   guardianName: string;
@@ -77,7 +79,7 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
   });
 
   const fetchEnquiries = async (filters: Record<string, any>) => {
-    const response = await axios.get('http://localhost:4000/admin', {
+    const response = await axios.get( `${local_base_url}/admin` , {
       params: filters,
     });
     setPagination({
@@ -110,7 +112,7 @@ const EnquiriesTable: React.FC<{ initialFilters?: Record<string, any> }> = ({
   const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this enquiry?')) {
       try {
-        await axios.delete(`http://localhost:4000/admin/${id}`);
+        await axios.delete( `${local_base_url}/admin/${id}` );
         toast({
           title: 'Enquiry deleted successfully.',
           status: 'success',

@@ -12,14 +12,16 @@ import {
   FormLabel,
   Heading,
   Input,
-  RangeSliderMark,
   Stack,
   Textarea,
   VStack,
 } from '@chakra-ui/react';
 import { useForm, Controller } from 'react-hook-form';
 import GoBackButton from './GoBackButton';
-import RemarkSection from './RemarkSection';
+
+import { local_base_url } from '../api/index';
+
+
 
 type Address = {
   street: string;
@@ -51,13 +53,13 @@ type Enquiry = {
 };
 
 const fetchEnquiry = async (id: string) => {
-  const response = await axios.get(`http://localhost:4000/admin/${id}`);
+  const response = await axios.get( `${local_base_url}/admin/${id}`);
   return response.data.existingEnquiryForm;
 };
 
 const updateEnquiry = async (id: string, data: Enquiry) => {
   const response = await axios.patch(
-    `http://localhost:4000/admin/${id}`,
+    `${local_base_url}/admin/${id}`,
     data,
     {
       headers: {
