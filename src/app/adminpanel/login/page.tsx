@@ -79,8 +79,9 @@ const Login: React.FC = () => {
         Admin Login
       </Heading>
       <Box mb={6} textAlign="center" color="gray.600" fontSize="sm">
-        <Text>Sample Admin</Text>
-        <Text>Sample Username: anshul and Password: anshul@12</Text>
+        <Text> Sample Admin- </Text>
+        <Text> Username: anshul </Text>
+        <Text> Password: anshul@12 </Text>
       </Box>
       <Box
         as="form"
