@@ -10,6 +10,7 @@ import {
   Heading,
   Alert,
   AlertIcon,
+  Text
 } from '@chakra-ui/react';
 import { useMutation } from 'react-query';
 import { useRouter } from 'next/navigation';
@@ -77,6 +78,10 @@ const Login: React.FC = () => {
       <Heading mb={6} color="teal.500">
         Admin Login
       </Heading>
+      <Box mb={6} textAlign="center" color="gray.600" fontSize="sm">
+        <Text>Sample Admin</Text>
+        <Text>Sample Username: anshul and Password: anshul@12</Text>
+      </Box>
       <Box
         as="form"
         bg="white"
